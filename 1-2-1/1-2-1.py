@@ -7,8 +7,8 @@ import random as rand
 spot_color = "yellow"
 spot_size = 2
 spot_shape = "circle"
-score = 0
 
+score = 0
 
 #-----initialize turtle-----
 spot = trtl.Turtle()
@@ -68,5 +68,6 @@ def countdown():
 #-----events----------------
 spot.onclick(spot_clicked)
 wn = trtl.Screen()
+wn.bgcolor("cyan")
 wn.ontimer(countdown, counter_interval)
 wn.mainloop()
