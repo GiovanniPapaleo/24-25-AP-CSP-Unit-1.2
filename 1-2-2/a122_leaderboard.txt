@@ -1,5 +1,5 @@
-Cuticle,7
-Norman,6
-Ernest,5
-Willard,4
-Jameson,3
+Cuticle,18
+Norman,15
+Ernest,13
+Willard,11
+Jameson,8
