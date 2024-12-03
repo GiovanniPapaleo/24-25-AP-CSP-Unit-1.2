@@ -1,36 +1,48 @@
-import turtle as t
+import turtle as trtl
+import random as rd
 
-# Initialize variables
-num_walls = 20
-path_width = 10
-wall_color = "black"
-wall_length = 20
-barrier_length = (path_width * 2)
+# Intialize Variables
+wn = trtl.Screen()
+maze_painter = trtl.Turtle()
+length = 35
+path_width = 30
 
-# DRAW MAZE
-# Set up turtle
-maze_painter = t.Turtle()
-maze_painter.pencolor(wall_color)
-maze_painter.hideturtle()
-# Maze walls
-for num in range(num_walls):
-    maze_painter.forward(wall_length)
+
+# Setup Turtle
+maze_painter.left(90)
+maze_painter.pensize(5)
+maze_painter.speed(0)
+
+# Draw Maze
+# Process:
+# Draw a line
+# Turn Left
+# Increment Length
+# Repeat
+def draw_barrier():
+    maze_painter.right(90)
+    maze_painter.forward(path_width)
+    maze_painter.backward(path_width)
     maze_painter.left(90)
-    wall_length = wall_length + path_width
-    # Draw doors and barriers
-    if num in range(num_walls):
-        # Draw doors
-        maze_painter.forward(10)
-        maze_painter.penup()
-        maze_painter.forward(10)
-        maze_painter.pendown()
-        # Draw barriers
-        maze_painter.forward(40)
-        maze_painter.left(90)
-        maze_painter.forward(path_width*2)
-        maze_painter.back(path_width*2)
-        maze_painter.right(90)
 
-# Hold display
-wn = t.Screen()
+
+
+for wall in range(21):
+    first_length = length/rd.randint(1,5)
+    maze_painter.forward(first_length)
+    maze_painter.forward(length/3)
+    maze_painter.penup()
+    maze_painter.forward(path_width)
+    maze_painter.pendown()
+    if(wall > 5):
+        draw_barrier()
+    maze_painter.forward(length- path_width - (length/3))
+    maze_painter.left(90)
+    length += 15
+
+
+
+
+
+wn.listen()
 wn.mainloop()
