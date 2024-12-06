@@ -28,15 +28,17 @@ def draw_barrier():
 
 
 for wall in range(21):
-    first_length = length/rd.randint(1,3)
-    maze_painter.forward(first_length)
-    maze_painter.forward(length/3)
+    gap_space = rd.randint(0, length - path_width)
+    door_space = 0
+    maze_painter.forward(gap_space)
     maze_painter.penup()
     maze_painter.forward(path_width)
     maze_painter.pendown()
     if(wall > 5):
+        door_space = rd.randint(0,length - path_width - gap_space)
+        maze_painter.forward(door_space)
         draw_barrier()
-    maze_painter.forward(length- path_width - (first_length))
+    maze_painter.forward(length - path_width - gap_space - door_space)
     maze_painter.left(90)
     length += 15
 
